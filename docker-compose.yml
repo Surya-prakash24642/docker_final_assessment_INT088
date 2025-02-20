@@ -1,0 +1,20 @@
+version: '3'
+services:
+  reader:
+    build: ./a
+    ports:
+      - "3000:3000"
+    networks:
+      - PE_FINAL_ASSESSMENT
+    depends_on:
+      - writer
+  writer:
+    build: ./b
+    ports:
+      - "4000:4000"
+    networks:
+      - PE_FINAL_ASSESSMENT
+ 
+networks:
+  PE_FINAL_ASSESSMENT:
+    driver: bridge
